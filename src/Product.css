@@ -1,0 +1,60 @@
+.Product {
+    margin: 20px;
+    cursor: pointer;
+    
+    border-radius: 20px;
+    
+}
+
+
+
+
+.product-details {
+    display: flex;
+    position: relative;
+    bottom: 180px;
+    margin-bottom: -50px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    
+    
+}
+
+
+.Product > img {
+    border-radius: 20px;
+    border-bottom: 2px solid lightgray;
+}
+
+
+
+.muiIcon {
+    
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    background-color: transparent;
+    color: transparent;
+    
+}
+
+.Product:hover .muiIcon {
+    background-color: rgb(235, 229, 229);
+   
+    transition: .5s;
+    color: rgb(0, 0, 0);
+}
+
+.Product:hover .muiIcon:hover {
+   background-color: pink;
+   color: white;
+   
+   transition: .1s;
+}
+

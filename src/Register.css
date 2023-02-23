@@ -1,0 +1,123 @@
+.register {
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.register > .image {
+    text-align: center;
+    
+}
+
+.Register-box {
+    border: 1px solid lightgray;
+    width: 250px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    border-radius: 4px;
+}
+
+.Register-box > h2 {
+    font-weight: 500;
+    font-size: 25px;
+}
+
+.register-form {
+    
+    padding-top: 15px;
+}
+
+.register-form > h5 {
+    padding-bottom: 3px;
+    padding-left: 1px;
+    font-weight: 600;
+}
+
+.register-form > input {
+    border-radius: 3px;
+    width: 100%;
+    margin: 0 auto;
+    height: 25px;
+    text-indent: 5px;
+    border: 1px solid lightgray;
+}
+
+.register-form > input:focus {
+    
+    outline-color: #e2aeae;
+}
+
+form > button {
+    height: 30px;
+    cursor: pointer;
+    margin-top: 12px;
+    width: 100%;
+    
+    margin-bottom: 30px;
+    background-image: linear-gradient(white, #f4dfdf);
+    border: 1px solid lightgray;
+}
+ 
+form > button:hover {
+    color: black;
+}
+
+.register-boxFooter  {
+    display: flex;
+    font-weight: 200;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    
+    border-top: 1px solid rgb(248, 242, 242);
+}
+
+.register-boxFooter > .link > .link-color {
+    padding-left: 5px;
+    color: #e2aeae;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.register-boxFooter > h5  {
+    font-weight: 400;
+}
+
+.register-bottomHalf {
+    border-top: 1px solid rgb(248, 242, 242);
+    background: linear-gradient(
+      to right,
+      rgb(255, 255, 255),
+      20%,
+      rgb(249, 247, 247) 50%,
+      white 100%
+    );
+    gap: 10px;
+    width: 100%;
+    margin-top: 30px;
+    height: 160px;
+    
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    flex-direction: column;
+    border-image: linear-gradient(to bottom, rgb(248, 242, 242), #f6f6f7 100%);
+    border-image-slice: 1;
+  }
+
+  .register-bottomHalf .footer {
+    margin: 0 auto;
+    padding-right: 20px;
+    display: flex;
+    padding-bottom: 60px;
+    color: #e2aeae;
+  }
+
+  .register-bottomHalf .footer > h6 {
+    margin-left: 10px;
+    font-weight: 500;
+  }

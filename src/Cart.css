@@ -1,0 +1,150 @@
+.product-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.h2 {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.image {
+    width: 100px;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
+    margin: 40px;
+    border-bottom: 1px solid lightgray;
+}
+
+.cart-empty {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.remove-button {
+    height: 30px;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.remove-button > button {
+    background-image: linear-gradient(white, #e9d4d4);
+    margin-top: 20px;
+    border: none;
+    padding: 10px;
+    font-size: small;
+    cursor: pointer;
+    
+}
+
+.upper-half {
+    display: flex;
+    justify-content: space-evenly;
+    background-image: linear-gradient(white, #e9d4d4);
+    margin: 40px;
+    border-radius: 7px;
+}
+
+.counter-container {
+    
+}
+
+
+
+.counter {
+    display: flex;
+    border: 1px solid lightgray;
+    padding: 10px;
+    width: 70px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.counter-minus {
+    margin-right: 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+
+    
+}
+
+.counter-plus:hover {
+    color: rgb(99, 89, 89);
+}
+
+.counter-minus:hover {
+    color: rgb(99, 89, 89);
+}
+
+.counter-plus {
+    margin-left: 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    position: relative;
+    top: 1px;
+}
+
+.cart-total {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+.total-container {
+    background-color: rgb(240, 237, 237);
+    width: 300px;
+    border: 1px solid lightgray;
+    border-bottom: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.totalContainer {
+    display: flex;
+    align-items: center;
+    
+    
+}
+
+.total-container > h5 {
+    
+    display: flex;
+    justify-content: center;
+}
+
+.total {
+    display: flex;
+    align-items: center;
+}
+
+.proceedBtn {
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    margin-top: 10px;
+    background-color: #70aff2;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+}

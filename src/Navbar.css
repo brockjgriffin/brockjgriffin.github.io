@@ -1,0 +1,417 @@
+.navbar {
+  padding: 20px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px inset rgb(210, 207, 207);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input > input {
+  border: none;
+  height: 25px;
+  outline: none;
+  text-indent: 5px;
+}
+
+.input {
+  outline: none;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  border: 1px solid lightgray;
+}
+
+.searchIcon {
+  transform: scale(0.7);
+  color: gray;
+}
+
+.navbar-middle {
+  padding-right: 200px;
+  position: relative;
+  top: 4px;
+  
+}
+
+.navbar-middle > img {
+  mix-blend-mode:darken;
+  object-fit: cover;
+  
+}
+
+.navbar-right {
+  display: flex;
+  
+}
+
+
+
+
+
+
+ 
+
+.navbar-right > ul {
+  display: flex;
+  gap: 10px;
+  
+}
+
+.navbar-right > ul > li {
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+.link-button {
+  text-decoration: none;
+}
+
+.register-button {
+  border:none;
+  border-radius: 6px;
+  text-decoration: none;
+  background-image: linear-gradient(white, #e9d4d4);
+  height: 30px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.register-button:hover {
+  color: #000000;
+}
+
+
+
+.login-button {
+  border-radius: 6px;
+  border:none;
+  text-decoration: none;
+  background-image: linear-gradient(white, #e9d4d4);
+  height: 30px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.login-button:hover {
+  color: #000000;
+}
+
+.logout-button {
+  border-radius: 6px;
+  border:none;
+  text-decoration: none;
+  background-image: linear-gradient(white, #e9d4d4);
+  height: 30px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.logout-button:hover {
+  color: #000000;
+}
+
+.cart {
+  display: flex;
+  cursor: pointer;
+}
+
+.cart-icon-with-user {
+  
+}
+
+.cart:hover {
+  color: #e9d4d4;
+  transition: 0.07s ease;
+}
+
+.cart > p {
+  color: #e9d4d4;
+}
+
+.cart:hover > p {
+  
+}
+
+
+
+@media screen and (min-width: 900px) {
+  .hamburger-icon {
+    display: none;
+  }
+}
+
+.hamburger-icon {
+  cursor: pointer;
+  
+  
+}
+
+.hamburger-icon > .icon:hover {
+    color: #a88235;
+    transition: .1s ;
+}
+
+@media screen and (max-width: 900px) {
+  .navbar-middle {
+    display: none; 
+  }
+
+  .navbar-right > ul {
+    display: none;
+    
+  }
+}
+
+.cart > p {
+  align-items: center;
+  color: #e9bdbd;
+  display: flex;
+  
+  justify-content: center;
+  position: relative;
+  right: 12px;
+  width: 15px;
+  height: 15px;
+  border-radius: 10px;
+  bottom: 7px;
+
+  background-color: #ffffff;
+}
+
+
+
+ .drop > .drop-1 >.link > button {
+  height: 30px;
+  color: #000000;
+  border-radius: 4px;
+  width: 75%;
+  background-color:#f9f3f3;
+  background-image: linear-gradient(white, #e9d4d4);
+  position: relative;
+  bottom: 5px;
+  border: none;
+  cursor: pointer;
+  
+}
+ .drop > .drop2-3 > .drop-2 >.link  > button {
+  height: 30px;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  background-image: linear-gradient(white, #e9d4d4);
+  border-radius: 4px;
+  width: 80%;
+  margin: 0 auto;
+  
+  
+}
+
+.drop-2 > .link {
+  
+}
+
+.drop > .drop2-3 > .drop-2 >.link  > .butto {
+  height: 30px;
+  color: #000000;
+  border: none;
+  
+  
+  cursor: pointer;
+  background-image: linear-gradient(white, #e9d4d4);
+  border-radius: 4px;
+  width: 200px;
+  margin: 0 auto;
+  background-color:#f9f3f3;
+  
+}
+  .drop > .drop2-3 > .drop-3 > .link > button {
+    height: 30px;
+    color: #000000;
+    cursor: pointer;
+    background-image: linear-gradient(white, #e9d4d4);
+    border: none;
+    border-radius: 4px;
+    width: 80%;
+    margin: 0 auto;
+    background-color:#f9f3f3;
+}
+
+.dropdown-menu > .drop >.drop-1 {
+  
+  border-bottom: 1px solid lightgray;
+  width: 100%;
+  cursor: default;
+  cursor: pointer;
+  height: 40px;
+  
+}
+
+.dropdown-menu > .drop >.drop-1 > p {
+  font-size: 9px;
+  
+  position: relative;
+  bottom: 3px;
+  cursor: pointer;
+  
+}
+
+.dropdown-menu > .drop >.drop-1 > p > .llink {
+  position: relative;
+  left: 5px;
+  text-decoration: none;
+  color:#ad8e8e;
+  width: 100%;
+}
+
+.dropdown-menu > .drop >.drop-1 > p > .llink:hover {
+
+}
+
+.dropdown-menu > .drop > .drop2-3 > .drop-2 {
+  
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 4px;
+  width: 50%;
+  border-right: 1px solid lightgray;
+}
+
+.dropdown-menu > .drop > .drop2-3>.drop-3 {
+  width: 50%;
+  
+  
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  
+
+}
+
+.drop-2 > .logout-link {
+  
+}
+
+.drop-3 > .cart-with-user {
+  background-image: linear-gradient(white, #e9d4d4);
+  margin-top: 10px;
+  height: 30px;
+  margin-left: 20px;
+  width: 80%;
+  border-radius: 4px;
+}
+
+.logout-link {
+  background-image: linear-gradient(white, #e9d4d4);
+  margin-top: 10px;
+  height: 30px;
+  margin-left: 20px;
+  width: 80%;
+  border-radius: 4px;
+}
+
+.drop-3 > .cart-without-user {
+  background-image: linear-gradient(white, #e9d4d4);
+  margin-top: 10px;
+  height: 30px;
+  margin-left: 20px;
+  width: 80%;
+  border-radius: 4px;
+}
+
+.drop-3 > Link > button {
+  
+}
+
+.dropdown-menu > .drop > .drop2-3 {
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  height: 160px;
+  cursor: default;
+  
+}
+
+
+
+.dropdown-menu > .drop {
+  list-style: none;
+  background-color:#f7f7f5;
+  height: 200px;
+  width: 200px;
+  border: 1px solid rgb(230, 220, 220);
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 5px;
+  padding: 10px
+}
+
+.dropdown-menu > ul > button:hover {
+  background-color: aliceblue;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.dropdown-menu > .drop   {
+  overflow: visible;
+}
+
+.dropdown-menu.active {
+  transition: all .2s;
+  position: fixed;
+  top: 90px;
+  right: 0;
+  text-align: center;
+  overflow: visible;
+}
+
+@media screen and (max-width: 320px) {
+  .dropdown-menu.active {
+    transition: all .2s;
+    position: fixed;
+    top: 110px;
+    right: 0;
+    text-align: center;
+  }
+
+  
+}
+
+.dropdown-menu.inactive {
+    position: fixed;
+    right: -100%;
+    
+}
+
+.close-icon {
+  
+}
+
+
+button:hover {
+  color: white;
+}
+
+button > .link {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  
+}
+
+button > .link:hover {
+  
+}

@@ -1,0 +1,22 @@
+.description > img {
+    width: 200px;
+    height: 200px;
+}
+
+.items {
+    
+    
+}
+
+.button {
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid lightgray;
+    background-image: linear-gradient(white, #f4dfdf);
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,18 @@
+.navbarDeal {
+    
+    text-align: center;
+    background:linear-gradient(to right, white, rgb(246, 221, 221), white );
+    
+    color: black;
+    width: 100%;
+    margin: 0 auto;
+    
+}
+
+
+.navbarDeal > p {
+  color: rgb(101, 97, 97);
+  font-size: 15px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+

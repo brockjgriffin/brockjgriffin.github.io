@@ -1,0 +1,36 @@
+.items {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    overflow: auto;
+    margin: 10px;
+    border: 1px solid lightgray;
+    padding-bottom: 10px;
+}
+
+.cartItem {
+    
+}
+
+.button {
+    width: 100px;
+    align-items: center;
+    margin: 0 auto;
+    margin-left: 25%;
+}
+
+.shopping {
+    overflow-x: hidden;
+    
+}
+
+.shopping > h2 {
+    margin-left: 10px;
+}
+
+.items::-webkit-scrollbar {display:none;}
+
+.prods {
+    display: flex;
+}

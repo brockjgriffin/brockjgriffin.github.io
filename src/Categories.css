@@ -1,0 +1,73 @@
+.categories {
+    margin: 10px;
+    
+    
+    text-align: center;
+    
+}
+
+@media screen and (max-width: 320px) {
+    .categories > img {
+        width: 250px;
+        height: 250px;
+        
+    }
+
+    .categories {
+        
+    }
+
+    .catDetails {
+        position: relative;
+        top: -170px;
+    }
+
+    .categories > .catDetails > button {
+        width: 70px;
+        height: 30px;
+        
+    }
+
+    .categories > .catDetails > h1 {
+        font-size: 24px;
+    }
+
+    .categories > .catDetails > button > h5 {
+        font-size: 10px;
+    }
+
+    
+}
+
+.categories > p {
+    
+    
+}
+
+
+
+
+.catDetails {
+    position: relative;
+    bottom: 200px;
+    
+}
+
+.catDetails > button {
+    background-color: white;
+    border: none;
+    margin-top: 5px;
+    border-radius: 6px;
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.categories > img {
+    
+    
+}
+
+
+
+
