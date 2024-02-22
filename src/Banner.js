@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Banner.css'
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 import {
@@ -9,10 +9,13 @@ import {
   Switch,
   useNavigate
 } from "react-router-dom";
+import SearchIcon from '@mui/icons-material/Search'
+import CloseIcon from '@mui/icons-material/Close';
 import { redirect } from 'react-router-dom';
 
 function Banner() {
 
+const [SearchClicked, setSearchClicked] = useState(false)
   
 const navigate = useNavigate()
 navigate('/shopping')

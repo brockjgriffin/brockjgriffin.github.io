@@ -3,14 +3,13 @@
   display: flex;
 }
 
-.login {
+.login-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-
-  width: 80%;
-  margin: 0 auto;
+  justify-content: center;
+  
+  max-height: 800px;
 }
 
 .login-Box {
@@ -97,7 +96,7 @@
   margin: auto;
 }
 
-.login > .link  {
+.login-container > .link  {
   border-radius: 3px;
   text-decoration: none;
   justify-content: center;
@@ -113,84 +112,96 @@
   cursor: pointer;
 }
 
-.login > .link > h5  {
+.login-container > .link > h5  {
   color: black;
   font-weight: 450;
 
 }
 
+.bottomHalf-container {
+  
+  border-image: linear-gradient(to bottom, rgb(248, 242, 242), #f6f6f7 100%);
+
+}
+
 .login-bottomHalf {
   border-top: 1px solid rgb(248, 242, 242);
+  display: flex;
   background: linear-gradient(
     to right,
     rgb(255, 255, 255),
     20%,
-    rgb(249, 247, 247) 50%,
+    rgb(248, 245, 245) 50%,
     white 100%
   );
-  gap: 10px;
   width: 100%;
-
-  height: 300px;
-  display: flex;
-  flex-grow: 1;
+  padding-bottom: 155px;
   justify-content: center;
-  flex-direction: column;
+  
   border-image: linear-gradient(to bottom, rgb(248, 242, 242), #f6f6f7 100%);
   border-image-slice: 1;
 }
 
-.login-bottomHalf > .facebook-button {
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: none;
+    position: relative;
+    top: 60px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.login-bottomHalf > .buttons > button {
   width: 270px;
   height: 40px;
-  margin: 0 auto;
+}
+
+.facebook-button {
+  padding-right: 20px;
+  padding-left: 10px;
+  border: none;
+  
   display: flex;
   align-items: center;
-  justify-content: center;
-  background-color: #3b5998;
   color: white;
-  border: 1px solid lightgray;
+  
   cursor: pointer;
 }
 
-.login-bottomHalf > .facebook-button > .icon {
-  position: relative;
-  right: 40px;
-  color: white;
+.socialMedia-icons {
+  transform: scale(2);
 }
 
-.login-bottomHalf > .google-button {
-  width: 270px;
-  height: 40px;
+.h4 {
+  margin-left: 20px;
+}
+
+.google-button {
+  padding-right: 20px;
+  padding-left: 10px;
+  
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  border: 1px solid lightgray;
-  background-color: white;
+  
+  
   color: black;
   cursor: pointer;
 }
 
-.login-bottomHalf > .google-button > .google-icon {
-  width: 20px;
-  position: relative;
-  right: 48px;
-}
 
-.login-bottomHalf > .apple-button {
-  width: 270px;
-  height: 40px;
-  display: flex;
+.apple-button {
+  padding-right: 20px;
+  padding-left: 10px;
   align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  border: 1px solid lightgray;
-  color: black;
+  display: flex;
+  color: white;
   cursor: pointer;
 }
 
-.login-bottomHalf > .apple-button > .icon {
-  position: relative;
-  right: 52px;
+.google-icon {
+  
 }
+
+

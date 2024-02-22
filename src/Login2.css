@@ -1,0 +1,11 @@
+.login2 {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login2-box {
+    border: 1px solid lightgray;
+    padding: 10px;
+}

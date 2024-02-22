@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Register from './Register';
 import Login from './Login';
 import Cart from './Cart';
@@ -13,45 +13,76 @@ import {
   Route,
   Link,
   Switch,
-  useLocation
+  useLocation,
+  BrowserRouter
 } from "react-router-dom";
-import { AuthContextProvider } from './AuthContext';
-import {ToastContainer} from 'react-toastify'
-import "react-toastify/dist/ReactToastify.css";
+
+
 import './App.css';
 import NavbarDeal from './NavbarDeal';
+import Login2 from './Login2';
 
+import { db } from './config';
+import { UserAuth } from './AuthContext';
+import { doc, setDoc } from 'firebase/firestore';
+import { login, logout, selectUser } from "./redux/userSlice";
+import { useDispatch, useSelector } from 'react-redux';
+import { auth } from './config';
 
 function App() {
   const withoutNav = ['/shopping', '/register', '/login', '/cart']
-  const { pathname } = useLocation()
+ 
+
+  const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubsribe = auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        console.log(userAuth)
+        dispatch(
+          login({
+            uid:userAuth.uid,
+            email: userAuth.email
+          })
+        )
+      } else {
+        dispatch(logout())
+      }
+    })
+    return unsubsribe
+  }, [dispatch])
+  
+
+  
 
 
   return (
     
     <div className="app">
       
-      <AuthContextProvider>
-      <ToastContainer />
+      <BrowserRouter>
+      
    
       
-      { pathname === '/register' || pathname === '/login' ?  null : <NavbarDeal text='get 50 off' /> }
-      { pathname === '/register' || pathname === '/login' ?  null : <Navbar /> }
+     
+      
       
         
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route exact path='/' element={<Home />} />
         
-        <Route path='/shopping' element={<Shopping />} />
-        <Route path='/items' element={<Items />} />
+        <Route exact path='/shopping' element={<Shopping />} />
+        <Route exact path='/items' element={<Items />} />
 
-        <Route path='/register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/cart' element={<Cart />} />
+        <Route exact path='/register' element={<Register />} />
+        <Route exact path='/login2' element={<Login2 />} />
+        <Route exact path='/login' element={<Login />} />
+        <Route exact path='/cart' element={<Cart />} />
         
 
       </Routes>
-      </AuthContextProvider>
+      </BrowserRouter>
       
     </div>
     

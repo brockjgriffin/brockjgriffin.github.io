@@ -2,7 +2,6 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://brockjgriffin.github.io/react-gh-pages",
   "dependencies": {
     "-": "^0.0.1",
     "@emotion/react": "^11.10.5",
@@ -17,6 +16,7 @@
     "react": "^18.2.0",
     "react-click-away-listener": "^2.2.2",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.7.1",
     "react-md": "^5.1.4",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.4.3",
@@ -28,8 +28,6 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -55,7 +53,7 @@
   },
   "devDependencies": {
     "@redux-devtools/core": "^3.13.1",
-    "gh-pages": "^5.0.0",
+    "postcss-preset-env": "^9.3.0",
     "prettier": "2.8.0"
   }
 }

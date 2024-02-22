@@ -17,7 +17,7 @@ const initialState = {
 
 const cartSlice = createSlice({
     name: 'cart',
-    initialState,
+    initialState: [],
     reducers: {
         addToCart(state, action) {
             const itemIndex = state.cartItems.findIndex(
@@ -25,17 +25,12 @@ const cartSlice = createSlice({
             );
             if(itemIndex >= 0) {
                 state.cartItems[itemIndex].cartQuanity += 1
-                toast.info(` increased ${state.cartItems[itemIndex].title} cart quanity`, {
-                    position: 'bottom-left'
-                })
             } else {
                 const tempProduct = {...action.payload, cartQuanity: 1}
                 state.cartItems.push(tempProduct);
-                toast.success(`${action.payload.title} to cart`, {
-                    position: 'bottom-left'
-                })
+                
             }
-            localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+            
             
         },
         
@@ -44,25 +39,33 @@ const cartSlice = createSlice({
                 (cartItem) => cartItem.id !== action.payload.id
             )
             state.cartItems = nextCartItems
-            localStorage.setItem('cartItems', JSON.stringify(state.cartItems))
+  
 
-            toast.success(`${action.payload.title} removed from cart`, {
-                position: 'bottom-left'
-            })
+            
         },
 
         decreasedCart(state,action) {
+            //The index is a number assigned to your products
+            //starting from zero. the first product you add
+            // to your cart will have the index of 0. the 
+            //second product you add will have the index of 1
+            //and so on..
+
+            //{itemIndex} goes into state of the cartItems and
+            //goes through the cart items in my cart and
+            //stores the id of each cart item, which means
+            // if you added to 4th product to your cart
+            //of the array of products, its id is 4
+            //the action carries that info to the store
             const itemIndex = state.cartItems.findIndex(
                 (cartItem) => cartItem.id === action.payload.id
             )
-
+            //if 
             if(state.cartItems[itemIndex].cartQuanity >= 1) {
                 state.cartItems[itemIndex].cartQuanity -= 1
                 
 
-                toast.info(`Removed${action.payload.title}`, {
-                    position: 'bottom-left'
-                })
+                
                 
             } else if (state.cartItems[itemIndex].cartQuanity === 1) {
                 const nextCartItems = state.cartItems.filter(
@@ -72,11 +75,9 @@ const cartSlice = createSlice({
                 state.cartItems = nextCartItems;
                 
 
-                toast.success(`${action.payload.title} Removed from cart`, {
-                    position: 'bottom-left'
-                }) 
+                
             }  
-            localStorage.setItem('cartItems', JSON.stringify(state.cartItems)); 
+            
         },
 
         usersCart(state,action) {
@@ -92,9 +93,7 @@ const cartSlice = createSlice({
             if(state.cartItems[itemIndex].cartQuanity >= 0) {
                 state.cartItems[itemIndex].cartQuanity += 1
 
-                toast.info(`increased${action.payload.title}`, {
-                    position: 'bottom-left'
-                })
+                
             } 
                 
              else if (state.cartItems[itemIndex].cartQuanity === 1) {
@@ -105,11 +104,9 @@ const cartSlice = createSlice({
                 state.cartItems = nextCartItems;
                 
 
-                toast.success(`${action.payload.title} Removed from cart`, {
-                    position: 'bottom-left'
-                }) 
+                
             }  
-            localStorage.setItem('cartItems', JSON.stringify(state.cartItems)); 
+            
         }
         
 

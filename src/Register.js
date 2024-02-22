@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import "./Register.css";
 import { Link, useNavigate } from "react-router-dom";
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, createUserWithEmailAndPassword, updateCurrentUser } from 'firebase/auth'
 import { auth } from './config'
 import { UserAuth } from "./AuthContext";
+import { setDoc, addDoc, collection, doc } from "firebase/firestore";
+import { db } from "./config";
+
+
 
 function Register() {
   const [email, setEmail] = useState("");
@@ -11,22 +15,50 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [ error, setError ] = useState('')
   
-  const { createUser } = UserAuth()
+  const { createUser, user } = UserAuth()
 
   const navigate = useNavigate()
 
+  const addData = async() => {
+     const docRef = doc(collection(db, 'cities'), {
+      email: 'data@gmail.com'
+     })
+     await setDoc(docRef)
+  }
+
+  const addChips = async() => {
+    const docRef = await addDoc(collection(db,'emails'), {
+      email: 'chips@gmail.com'
+    })
+
+    .catch((err) => {
+      console.error(err)
+    })
+  }
+  
+  
+
+
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password, confirmPassword);
-    setError('')
     try {
-      await createUser(email, password);
-      navigate('/')
-    } catch (e) {
-      setError(e.message);
-      console.log(e.message);
+      const userCred = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      console.log(userCred);
+      const user = userCred.user;
+      localStorage.setItem("token", user.accessToken);
+      localStorage.setItem("user", JSON.stringify(user));
+      navigate("/");
+    } catch (error) {
+      console.error(error);
     }
   };
+
+  
 
   return (
     <div className="register">
@@ -74,8 +106,12 @@ function Register() {
             />
           </div>
 
-          <button type="submit">Continue</button>
+          <button onClick={handleSubmit} type="submit">Continue</button>
         </form>
+         <div className="add">
+          <button onClick={addData}>add data</button>
+          <button onClick={addChips}>add chips</button>
+         </div>
 
         <div className="register-boxFooter">
           <h5>Already have an account?</h5>
@@ -97,5 +133,7 @@ function Register() {
     </div>
   );
 }
+
+
 
 export default Register;

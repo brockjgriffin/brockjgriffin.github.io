@@ -13,80 +13,144 @@ import Cart from "./Cart";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "./config";
 import { UserAuth } from "./AuthContext";
+import PersonIcon from '@mui/icons-material/Person';
+import NavbarDeal from "./NavbarDeal";
 
 function Navbar() {
   const navigate = useNavigate();
-  const { user, logout } = UserAuth();
+  
+  const [user, setUser] = useState({})
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-      navigate("/");
-      console.log("you are logged out");
-    } catch (e) {
-      console.log(e.message);
-    }
-  };
+  
 
   const [isClicked, setIsClicked] = useState(false);
+  const [SearchClicked,setSearchClicked] = useState(false)
+
+
   const clickAway = () => {
     setIsClicked(false);
   };
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        console.log(currentUser)
+        setUser(currentUser)
+    })
+
+    return () => {
+        unsubscribe()
+    }
+})
+
   return (
-    <div className="navbar">
-      <div className="navbar-left">
-        <h5>EN</h5>
-        <ArrowDropDownIcon />
-        <div className="input">
-          <input placeholder="Search" type="text" className="navbar-search" />
-          <SearchIcon className="searchIcon" />
+    
+    <div className="navbar-container">
+      <NavbarDeal text='50% off deal' />
+     
+         
+    <div className="navbar" style={{  
+      display: SearchClicked ? '' :  ''
+    }}>
+      <Link to='/'>
+      <div style={{
+        display: SearchClicked ? 'none' : ''
+      }} className="navbar-left">
+        
+        <img src="https://i.pinimg.com/originals/96/b5/3d/96b53d234872eadfa5ae680fb80fe224.png" alt="" />
+      </div>
+      </Link>
+
+      <div className="navbar-middle">
+      {SearchClicked ? (
+      
+      <div className="search-widget">
+
+        <div className="left-side">
+          <SearchIcon className="widget-search-icon" />
+          <input placeholder="Search our store" type="text" className="widget-input" />
+        </div>
+        <div className="right-side" onClick={() => {setSearchClicked(!SearchClicked)}}>
+          <CloseIcon className="close-icon" />
         </div>
       </div>
-
-      <div className="navbar-middle"></div>
-
-      <div className="navbar-right">
+      ) : (
+        user ? (
+          <div className='search-icon-loggedIn' onClick={() => {setSearchClicked(!SearchClicked)}}>
+            <SearchIcon />
+            
+          </div>
+        ) : (
+          <div className='search-icon-loggedOut' onClick={() => {setSearchClicked(!SearchClicked)}}>
+            <SearchIcon />
+          </div>
+        )
+      )}
+      </div>
+      
+      <div style={{
+        display: SearchClicked ? 'none' : ''
+      }} className="navbar-right">
+      
         <ul>
-          <li>
-            <Link to="/register" style={{}} className="">
-              <button className="register-button">Register</button>
+        
+        
+        <li>
+          { user ? (
+            
+            <Link to="/register" style={{ display: user ? 'none' : '' }} className="link-button">
+              <button className="register-button">Create Account</button>
             </Link>
-          </li>
-
+          
+          ) : (
+            
+            <Link to="/register" style={{}} className="link-button">
+              <button className="register-button">Create account</button>
+            </Link>
+            
+          )}
+        </li>
           
 
-          <li>
-            <div className="loginLogout">
-              <Link className="link-button" to="/login">
+              <li>
+                <Link className="link-button" to="/login">
                 {user ? (
-                  <button className="login-button">{user.email}</button>
+                  <button className="email-button">{user.email}</button>
                 ) : (
                   <button className="login-button">Log In</button>
                 )}
               </Link>
+              </li>
+              <li>
               <Link className="link-button">
                 {" "}
-                <button className="logout-button" onClick={handleLogout}>
-                  Log Out
+                <button style={{  
+                  display: !user ? 'none' : ''
+                }} className="logout-button" >
+                  Log out
                 </button>
               </Link>
-            </div>
+              </li>
+          
+          
+          <li className="cart-li">
+            <Link className="cart" style={{ color: 'black' }} to='/cart'>
+              <ShoppingCartIcon />
+              <p>4</p>
+            </Link> 
           </li>
-
-          
-          
         </ul>
-        <Link className="cart" style={{ color: 'black' }} to='/cart'>
         
-            <ShoppingCartIcon />
-            <p>4</p>
+        
+        
+
+        
+        
+        
+      
           
-        </Link>
-        
-                
 
         <ClickAwayListener onClickAway={clickAway}>
+          
           <div
             className="hamburger-icon"
             onClick={() => {
@@ -94,82 +158,63 @@ function Navbar() {
             }}
           >
             {isClicked ? (
-              <CloseIcon className="close-icon" />
+              <CloseIcon className="icon" />
             ) : (
-              <MenuIcon className="icon" />
+              <div className="icon">
+                <PersonIcon  />
+              </div>
               
             )}
+            
+            
             <div
               className={`dropdown-menu ${isClicked ? "active" : "inactive"} `}
             >
               <div className="drop">
                 <div className="drop-1">
-                  <Link className="link" to="/register">
-                    <button>Sign Up</button>
-                  </Link>
-
-                  <p>
-                    Already Have an Account?
-                    <Link className="llink" to="/login">
-                      Sign In
-                    </Link>
-                  </p>
-                </div>
-                <div className="drop2-3">
-                  <div className="drop-2">
-                    <Link className="link" to="/login">
+                <Link to="/login">
                       {user ? (
-                        <button className="butto">Hi, {user.email}</button>
+                        <button className="shown-email">Hi, {user.email}</button>
                       ) : (
-                        <button>Log In</button>
+                        ''
                       )}
                     </Link>
 
-                    <Link
-                      style={{
-                        marginTop: 40,
-                        textDecoration: "none",
-                        color: "black",
-                        marginRight: 10,
-                      }}
-                      onClick={handleLogout}
-                      className="logout-link"
-                      to="/"
-                    >
-                      Log Out
-                    </Link>
-                  </div>
+                    <Link to='/' className="logoutLink" >Log Out</Link>
+                   
 
-                  <div className="drop-3">
-                    {user ? (
-                      <Link to="/cart" className="cart-with-user">
-                        <ShoppingCartIcon
-                          style={{
-                            color: "black",
-                            position: "relative",
-                            top: 2,
-                          }}
-                        />
-                      </Link>
-                    ) : (
-                      <Link to="/cart" className="cart-without-user">
-                        <ShoppingCartIcon
-                          style={{
-                            color: "black",
-                            position: "relative",
-                            top: 2,
-                          }}
-                        />
-                      </Link>
-                    )}
-                  </div>
+                  {user ? (
+                    <Link to='/register'>
+                      <button className="logged-in-signup">Create Account</button>
+                    </Link>
+                  ) : (
+                    <Link to='/register'>
+                      <button className="logged-out-signup">Create account</button>
+                    </Link>
+                  )}
+
                 </div>
+                {user ? (
+                  ''
+                ) : (
+                  <p style={{ fontSize: 11, marginTop: 5 }}>
+                    Already Have an Account?
+                  <Link className="sign-in" to="/login">
+                    Sign In
+                  </Link>
+                </p>
+                )}
               </div>
             </div>
           </div>
+          
         </ClickAwayListener>
+        
+      
       </div>
     </div>
+    </div>
+    
   );
 }
 

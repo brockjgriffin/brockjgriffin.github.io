@@ -19,25 +19,17 @@ import { Provider } from 'react-redux';
 import productsReducer from './redux/productsSlice';
 import cartReducer from './redux/cartSlice'
 import { configureStore } from '@reduxjs/toolkit';
-
-const store = configureStore({
-  reducer: {
-      products: productsReducer,
-      cart: cartReducer
-  },
-  
-});
+import store from './redux/store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   
-    <BrowserRouter>
-    <Provider store={store}>
-      <App />
-    </Provider>
-    </BrowserRouter>
-  
+  <Provider store={store} >
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+</Provider>
     
   
 );
